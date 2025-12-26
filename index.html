@@ -3,42 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang web của tôi trên GitHub</title>
+    <title>Profile Cá Nhân | Facebook Style</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --fb-blue: #1877F2;
+            --fb-bg: #F0F2F5;
+            --fb-white: #FFFFFF;
+            --fb-gray: #65676B;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--fb-bg);
             margin: 0;
-            background-color: #f0f2f5;
+            padding: 0;
+            color: #1c1e21;
         }
-        .container {
-            text-align: center;
-            padding: 50px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+        /* Header & Cover Photo */
+        .profile-header {
+            background-color: var(--fb-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding-bottom: 20px;
         }
-        h1 { color: #24292e; }
-        p { color: #586069; }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #2ea44f;
+
+        .cover-container {
+            height: 350px;
+            background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .profile-info {
+            max-width: 940px;
+            margin: -50px auto 0;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 20px;
+        }
+
+        .avatar {
+            width: 168px;
+            height: 168px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background: #ccc;
+            z-index: 1;
+        }
+
+        .user-details {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .user-details h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .user-details p {
+            margin: 5px 0;
+            color: var(--fb-gray);
+            font-weight: bold;
+        }
+
+        /* Content Layout */
+        .content-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        /* Left Column (Intro) */
+        .card {
+            background: var(--fb-white);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .card h3 { margin-top: 0; }
+
+        .intro-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            color: #1c1e21;
+        }
+
+        .intro-item i {
+            width: 30px;
+            font-size: 20px;
+            color: var(--fb-gray);
+        }
+
+        /* Right Column (Posts) */
+        .post-input {
+            padding: 15px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            margin-right: 10px;
+        }
+
+        .post-content {
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        .post-actions {
+            border-top: 1px solid #ced0d4;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-around;
+            color: var(--fb-gray);
+            font-weight: bold;
+        }
+
+        .btn-add {
+            background-color: var(--fb-blue);
             color: white;
-            text-decoration: none;
-            border-radius: 5px;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 850px) {
+            .content-container { grid-template-columns: 1fr; }
+            .profile-info { flex-direction: column; align-items: center; text-align: center; }
+            .user-details { margin-left: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Chào mừng đến với trang web GitHub! 🚀</h1>
-        <p>Đây là trang web đầu tiên của tôi được lưu trữ bằng GitHub Pages.</p>
-        <a href="https://github.com" class="btn">Xem mã nguồn trên GitHub</a>
-    </div>
+
+    <section class="profile-header">
+        <div class="cover-container">
+            </div>
+        <div class="profile-info">
+            <img src="https://via.placeholder.com/168" alt="Avatar" class="avatar">
+            <div class="user-details">
+                <h1>Đặng Tiến Đạt</h1>
+                <p>585 Bạn bè</p>
+            </div>
+            <button class="btn-add"><i class="fas fa-plus"></i> Thêm vào tin</button>
+        </div>
+    </section>
+
+    <main class="content-container">
+        <aside>
+            <div class="card">
+                <h3>Giới thiệu</h3>
+                <div class="intro-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Lập trình viên tại <b>GitHub</b></span>
+                </div>
+                <div class="intro-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Từng học tại <b>Đại học Bách Khoa</b></span>
+                </div>
+                <div class="intro-item">
+                    <i class="fas fa-home"></i>
+                    <span>Sống tại <b>Hà Nội</b></span>
+                </div>
+                <div class="intro-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Độc thân</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Ảnh</h3>
+                <p style="color: var(--fb-blue); cursor: pointer;">Xem tất cả ảnh</p>
+            </div>
+        </aside>
+
+        <section>
+            <div class="card post-input">
+                <div style="display: flex; align-items: center;">
+                    <div class="post-avatar"></div>
+                    <div style="background: #f0f2f5; flex-grow: 1; padding: 10px; border-radius: 20px; color: #65676b; cursor: pointer;">
+                        Bạn đang nghĩ gì thế?
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="post-header">
+                    <div class="post-avatar"></div>
+                    <div>
+                        <div style="font-weight: bold;">Đặng Tiến Đạt>Đặng>
+                        <div style="font-size: 12px; color: var(--fb-gray);">vừa xong · <i class="fas fa-globe-asia"></i></div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Chào mọi người!
+                </div>
+                <div class="post-actions">
+                    <span><i class="far fa-thumbs-up"></i> Thích</span>
+                    <span><i class="far fa-comment"></i> Bình luận</span>
+                    <span><i class="far fa-share-square"></i> Chia sẻ</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>
